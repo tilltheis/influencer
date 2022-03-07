@@ -1,0 +1,17 @@
+version: '3.1'
+
+services:
+
+  database:
+    image: postgres:14
+    restart: always
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: postgres
+      TZ: UTC
+      PGTZ: UTC
+    ports:
+      - "5432:5432"
+    volumes:
+      - ./docker/postgres:/docker-entrypoint-initdb.d/
